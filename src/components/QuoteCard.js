@@ -3,19 +3,19 @@ import React from 'react';
 // import quotes from '../reducers/quotes';
 
 
-function QuoteCard(props) {
+function QuoteCard({upvoteQuote, downvoteQuote, removeQuote, quote}) {
   
   const handleUpvote = () => {
-    props.upvoteQuote(props.quote.id)
+    upvoteQuote(quote.id)
   }
   
   const handleDownvote = () => {
-    props.downvoteQuote(props.quote.id)
+    downvoteQuote(quote.id)
   }
 
   const handleRemove = () => {
     console.log("hi");
-    props.removeQuote(props.quote.id)
+    removeQuote(quote.id)
   }
   
   return(
@@ -23,9 +23,9 @@ function QuoteCard(props) {
       <div className="card card-inverse card-success card-primary mb-3 text-center">
         <div className="card-block">
           <blockquote className="card-blockquote">
-            <p>{props.quote.content}</p>
+            <p>{quote.content}</p>
             {/* <p>{Render Quote Content}</p> */}
-            <footer>- author <cite title="Source Title">{props.quote.author}</cite></footer>
+            <footer>- author <cite title="Source Title">{quote.author}</cite></footer>
           </blockquote>
         </div>
         <div className="float-right">
@@ -52,7 +52,7 @@ function QuoteCard(props) {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div>Votes: {props.quote.votes}</div>
+          <div>Votes: {quote.votes}</div>
         </div>
       </div>
     </div>
